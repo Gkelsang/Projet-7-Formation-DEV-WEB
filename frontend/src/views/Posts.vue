@@ -1,6 +1,6 @@
 <template>
     <div id="posts">
-        <Menus />
+        <Menu />
 
         <b-row class="align-items-center text-center justify-content-center">
             <b-col cols="12" lg="6">
@@ -9,14 +9,13 @@
                 </b-card>
             </b-col>
         </b-row>
-        <PostList />
+        <PostsList />
     </div>
 </template>
 
 <script>
-import { apiClient } from '../services/ApiClient'
-import router from '../router/index'
-import { mapState, mapActions } from 'vuex'
+
+import { mapState } from 'vuex'
 import CreatePost from '../components/CreatePost'
 import PostsList from '../components/PostsList'
 import Menu from '../components/Menu'
@@ -36,3 +35,4 @@ export default {
     }
 }
 </script>
+

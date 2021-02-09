@@ -115,3 +115,38 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+a {
+  text-decoration: none;
+  color:  #D1515A!important;
+}
+.account-btn {
+  background-color:#323639;
+  color: white;
+  border-radius: 1rem;
+  border: none;
+  margin-bottom: 1rem;
+  padding: 0.375rem 0.75rem;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #D1515A;
+    color: white;
+    outline: none;
+  }
+}
+@media screen and (min-width: 280px) and (max-width: 769px) {
+  .account-card {
+    .card-body {
+      padding: 0.7rem;
+    }
+  }
+  .shadow {
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.08) !important;
+  }
+  .login-text {
+    font-size: 1.1rem;
+  }
+}
+</style>

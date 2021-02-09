@@ -107,8 +107,29 @@ export default {
 
 </script>
 
-<style>
-.page-container {
-    background-color: red;
+<style lang="scss">
+a {
+  text-decoration: none;
+  color: #2c3e50 !important;
+}
+.line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(192, 192, 192, 0.5);
+}
+.account-input {
+  &:-webkit-autofill {
+    border: none;
+    -webkit-text-fill-color: #212529;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(32, 120, 244, 0.2) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  &:focus {
+    border: none;
+    border-radius: 6px;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(32, 120, 244, 0.5);
+  }
 }
 </style>

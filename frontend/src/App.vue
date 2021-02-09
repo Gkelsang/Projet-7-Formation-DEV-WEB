@@ -22,3 +22,34 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+#nav {
+  background: #323639;
+  border-bottom: solid 5px #D1515A;
+  #logo {
+    max-width: 300px;
+  }
+}
+@media screen and (min-width: 280px) and (max-width: 767px) {
+  body,
+  .btn,
+  .form-control {
+    font-size: 13px !important;
+  }
+  #nav #logo {
+    max-width: 180px;
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 991px) {
+  #nav #logo {
+    max-width: 200px;
+  }
+}
+</style>
