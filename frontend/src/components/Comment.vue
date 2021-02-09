@@ -78,9 +78,9 @@ export default {
         },
         async onDelete () {
             const res = await apiClient.delete(
-                `api/posts/${this.post.id}/comments/${thos.comment.id}`
+                `api/posts/${this.post.id}/comments/${this.comment.id}`
             )
-            this.$emit('commentDeleted', tjis.comment)
+            this.$emit('commentDeleted', this.comment)
             this.displayNotification('Commentaire supprimé.')
         },
         startEditing () {
