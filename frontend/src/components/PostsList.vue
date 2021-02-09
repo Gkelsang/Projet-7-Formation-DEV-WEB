@@ -55,3 +55,24 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.post {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+@media screen and (min-width: 280px) and (max-width: 769px) {
+  .post {
+    height: 230px;
+  }
+}
+</style>

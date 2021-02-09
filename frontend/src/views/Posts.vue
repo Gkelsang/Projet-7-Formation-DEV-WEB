@@ -36,3 +36,20 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.card-body {
+  padding-bottom: 0;
+}
+@media screen and (min-width: 280px) and (max-width: 769px) {
+  .card-body {
+    padding: 0.7rem;
+  }
+  .shadow {
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.08) !important;
+  }
+}
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+</style>

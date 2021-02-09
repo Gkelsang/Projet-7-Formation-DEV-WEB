@@ -63,3 +63,26 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.comment-box {
+  background-color: rgba(108, 117, 125, 0.1);
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0;
+}
+.display-comments {
+  color: #747474;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus {
+    background: none;
+    outline: none;
+  }
+}
+</style>

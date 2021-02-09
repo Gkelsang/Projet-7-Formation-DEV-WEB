@@ -51,3 +51,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.custom-file-label {
+  text-align: left;
+}
+</style>

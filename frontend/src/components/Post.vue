@@ -130,3 +130,73 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.div-post-picture {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+}
+.post-profile-picture {
+  height: 50px;
+}
+@media screen and (min-width: 280px) and (max-width: 769px) {
+  .div-post-picture {
+    width: 42px;
+    height: 42px;
+  }
+  .post-profile-picture {
+    height: 42px;
+  }
+}
+.btn-block + .btn-block {
+  margin-top: 0px;
+}
+.line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(192, 192, 192, 0.5);
+}
+.blue {
+  color: rgb(32, 120, 244);
+}
+.react-btn {
+  background: white;
+  border: none;
+  margin: 3px;
+  color: #747474;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  padding: 0.375rem 0.75rem;
+  &:focus {
+    border: none !important;
+    outline: none !important;
+  }
+  &:hover {
+    color: #747474 !important;
+    background-color: rgba(108, 117, 125, 0.1) !important;
+  }
+}
+.like-btn {
+  color: #747474;
+  font-weight: normal;
+  &:hover,
+  &:focus,
+  &:active {
+    color: #747474 !important;
+    font-weight: normal;
+    background: none !important;
+  }
+}
+.modal-photo {
+  &__img {
+    max-width: 100%;
+    max-height: calc(100vh - 110px);
+  }
+}
+.header-style {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+</style>

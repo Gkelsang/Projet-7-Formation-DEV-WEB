@@ -17,7 +17,7 @@
                 <span class="likes-number ml-2">{{ likesCount }}</span>
         </button>
         <b-modal :id="`modal-likes-${post.id}`" :title="`${likesCount} J'aime`">
-            <div v-for="like in likesList">
+            <div v-for="like in likesList" :key="like">
                 <router-link :to="{ name: 'UserProfile', params: { userId: like.User.id } }">
                     <div class="d-flex align-items-center">
                 <div class="d-flex text-center">
@@ -58,3 +58,67 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+a {
+  text-decoration: none;
+  color: #212529;
+  &:hover,
+  &:visited {
+    color: #212529;
+    text-decoration: underline;
+  }
+}
+.like-btn {
+  background-color: transparent;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+.modal-body {
+  padding: 1rem 1rem 0 1rem;
+}
+.modal-title {
+  color: #747474;
+  font-size: 16px;
+}
+.modal-content {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  border: none;
+  box-shadow: 0px 1px 5px 4px rgba(204, 204, 204, 0.2);
+}
+.modal-backdrop {
+  background-color: rgba(108, 117, 125, 0.2);
+}
+.modal-footer {
+  padding: 0;
+  border-top: none;
+}
+.likes-number {
+  font-size: 14px;
+}
+@media screen and (min-width: 280px) and (max-width: 767px) {
+  .modal-title {
+    font-size: 14px;
+  }
+  .likes-number {
+    font-size: 12px;
+  }
+}
+.svg-container {
+  border-radius: 100%;
+  background-color: rgb(32, 120, 244);
+  width: 25px;
+  height: 25px;
+}
+.div-like-picture {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 1rem;
+  margin-right: 0.7rem;
+}
+.like-profile-picture {
+  height: 30px;
+}
+</style>

@@ -61,3 +61,81 @@
         </b-form-group>
     </div>
 </template>
+
+<script>
+import { apiClient } from '../services/ApiClient'
+import ProfileImage from './ProfileImage'
+export default {
+  name: 'PostForm',
+  components: {
+    ProfileImage
+  },
+  props: ['value', 'imgUrl', 'onFormSubmit', 'isCreating'],
+  data () {
+    return {
+      userData: JSON.parse(localStorage.getItem('userData')),
+      url: this.imgUrl
+    }
+  },
+  watch: {
+    onFormSubmit () {
+      this.url = null
+    }
+  },
+  methods: {
+    onFileSelected (event) {
+      this.url = URL.createObjectURL(event.target.files[0])
+      this.$emit('onFileSelected', event.target.files[0])
+    },
+    updateValue (value) {
+      this.$emit('input', value)
+    },
+    triggerInput () {
+      this.$refs.fileInput.click()
+    }
+  },
+  computed: {
+    emptyField () {
+      return !this.value.trim().length && !this.url
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+#preview img {
+  max-width: 100%;
+  max-height: 500px;
+}
+.disabled {
+  cursor: not-allowed;
+}
+.form-control {
+  border: 1px solid rgba(192, 192, 192, 0.5);
+  &:focus {
+    border: none;
+  }
+}
+.line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(192, 192, 192, 0.5);
+}
+.create-button {
+  background: white;
+  color: #747474;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  &:hover {
+    background-color: rgba(108, 117, 125, 0.1);
+  }
+  &:active,
+  &:focus {
+    background-color: white !important;
+    outline: none;
+  }
+}
+</style>

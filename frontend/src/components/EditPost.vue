@@ -70,3 +70,28 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.modal-body {
+  padding: 1rem 1rem 0 1rem;
+}
+.modal-title {
+  color: #747474;
+}
+.btn-light {
+  border: none;
+  color: #747474;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  margin: 0 1rem 1rem 1rem;
+}
+.modal-content {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  border: none;
+  box-shadow: 0px 1px 5px 4px rgba(204, 204, 204, 0.2);
+}
+.modal-backdrop {
+  background-color: rgba(108, 117, 125, 0.2);
+}
+</style>

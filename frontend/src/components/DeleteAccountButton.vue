@@ -32,3 +32,18 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.delete-account {
+  font-size: 14px;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  border: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+</style>

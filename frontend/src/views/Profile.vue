@@ -168,3 +168,54 @@ export default {
 }
     
 </script>
+
+<style lang="scss">
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.div-main-picture {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+.profile-main-picture {
+  height: 100px;
+}
+.custom-file-label {
+  text-align: left;
+}
+.save-btn {
+  background-color: rgba(253, 45, 6, 0.8);
+  color: white;
+  border-radius: 1rem;
+  border: none;
+  margin-bottom: 1rem;
+  padding: 0.375rem 0.75rem;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: rgb(253, 45, 6);
+    color: white;
+    outline: none;
+  }
+}
+.card-body {
+  padding-bottom: 0;
+}
+@media screen and (min-width: 280px) and (max-width: 769px) {
+  .create-button {
+    width: 100% !important;
+  }
+  .div-main-picture {
+    width: 75px;
+    height: 75px;
+  }
+  .profile-main-picture {
+    height: 75px;
+  }
+  .shadow {
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.08) !important;
+  }
+}
+</style>

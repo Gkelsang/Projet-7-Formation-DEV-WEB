@@ -78,3 +78,82 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.profile-btn {
+  font-weight: 500;
+  border: none;
+  color: #000;
+  top: 20px;
+  right: 45px;
+  height: 45px;
+  padding: 5px 5px 5px 16px;
+  box-shadow: 0px 1px 1px 1px rgba(204, 204, 204, 0.2);
+  background-color: rgba(108, 117, 125, 0.1) !important;
+  border-radius: 40px;
+  z-index: 2;
+  &:focus {
+    outline: none;
+  }
+  &:hover,
+  &:visited {
+    background-color: rgba(108, 117, 125, 0.2) !important;
+  }
+  &__img {
+    height: 30px;
+  }
+}
+.collapsed-btn {
+  font-weight: 500;
+  color: #000;
+  background-color: white;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  &:hover,
+  &:focus,
+  &active {
+    background-color: rgba(108, 117, 125, 0.1);
+    outline: none;
+  }
+  .b-icon.bi {
+    font-size: 125%;
+    vertical-align: text-bottom;
+  }
+}
+.div-profile-btn-img {
+  width: 30px;
+  height: 30px;
+  margin-left: 8px;
+}
+#profile-collapsed {
+  top: 62px;
+  right: 44px;
+  z-index: 1;
+}
+@media screen and (min-width: 280px) and (max-width: 769px) {
+  .profile-btn {
+    top: 20px;
+    right: 20px;
+    height: 25px;
+    padding: 0;
+    &__img {
+      height: 35px;
+    }
+  }
+  .div-profile-btn-img {
+    width: 35px;
+    height: 35px;
+    margin-left: 0;
+  }
+  #profile-collapsed {
+    top: 45px;
+    right: 15px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .name-profile-btn {
+    display: block !important;
+  }
+}
+</style>

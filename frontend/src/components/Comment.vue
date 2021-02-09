@@ -104,3 +104,38 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.comment-button {
+  position: static !important;
+  margin-left: 10px;
+}
+.comment-btn-collapsed {
+  left: 14px;
+  top: 40px;
+  width: 200px;
+}
+.input-content:focus {
+  border-radius: 0.25rem;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.comment-date {
+  margin-left: 58px;
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 280px) and (max-width: 767px) {
+  .comment-date {
+    font-size: 0.6rem;
+  }
+  .comment-button {
+    margin-bottom: 0;
+    margin-left: 3px;
+  }
+  .comment-btn-collapsed {
+    left: 6px;
+    top: 23px;
+    width: 135px;
+  }
+}
+</style>

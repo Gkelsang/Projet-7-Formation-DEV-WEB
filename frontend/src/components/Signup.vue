@@ -119,10 +119,10 @@ export default {
 <style lang="scss">
 a {
   text-decoration: none;
-  color:  #D1515A!important;
+  color: #2c3e50 !important;
 }
 .account-btn {
-  background-color:#323639;
+  background-color: rgba(253, 45, 6, 0.8);
   color: white;
   border-radius: 1rem;
   border: none;
@@ -131,7 +131,7 @@ a {
   &:hover,
   &:focus,
   &:active {
-    background-color: #D1515A;
+    background-color: rgb(253, 45, 6);
     color: white;
     outline: none;
   }
