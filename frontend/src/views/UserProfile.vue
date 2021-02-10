@@ -1,43 +1,34 @@
 <template>
   <div>
     <Menu />
-
     <b-row class="text-center justify-content-center">
       <div class="d-flex align-items-center flex-column">
-        <ProfileImage
-          :src="userProfile.imageUrl"
-          customClass="profile-main-picture"
-          divCustomClass="div-user-profile-picture"
-        />
-        <p class="user-name">
-          {{ userProfile.firstName }} {{ userProfile.lastName }}
-        </p>
 
-        <AdminDeleteAccount
-          v-if="userData.admin && !userProfile.deleted"
-          :userProfile="userProfile"
-        />
+        <!-- Affiche la photo de profil de l'utilisateur recherché avec son nom et prénom -->
+        <ProfileImage :src="userProfile.imageUrl" customClass="profile-main-picture" divCustomClass="div-user-profile-picture" />
+        <p class="user-name"> {{ userProfile.firstName }} {{ userProfile.lastName }} </p>
+
+        <AdminDeleteAccount v-if="userData.admin && !userProfile.deleted" :userProfile="userProfile" />
       </div>
     </b-row>
-
+    <!-- Affiche la liste de toutes les publications de l'utilisateur recherché -->
     <PostsList :userId="this.$route.params.userId" />
   </div>
 </template>
 
 <script>
+// Importation //
 import { apiClient } from '../services/ApiClient'
 import ProfileImage from '../components/ProfileImage'
 import PostsList from '../components/PostsList'
 import Menu from '../components/Menu'
 import AdminDeleteAccount from '../components/AdminDeleteAccount'
 
+// Exportations //
 export default {
   name: 'UserProfile',
   components: {
-    ProfileImage,
-    PostsList,
-    Menu,
-    AdminDeleteAccount
+    ProfileImage, PostsList, Menu, AdminDeleteAccount
   },
   watch: {
     $route (to, from) {
@@ -60,11 +51,13 @@ export default {
 </script>
 
 <style lang="scss">
+
 .div-user-profile-picture {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   margin-bottom: 1rem;
-  box-shadow: 0px 1px 2px 2px rgba(204, 204, 204, 0.5);
+  margin-top: 1rem;
+  box-shadow: 0px 1px 2px 2px #d1515a;
 }
 .profile-main-picture {
   height: 120px;
