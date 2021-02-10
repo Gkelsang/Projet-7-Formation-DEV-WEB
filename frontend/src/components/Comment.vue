@@ -1,21 +1,19 @@
 <template>
     <div>
         <div class="d-flex align-items-center position-relativ">
-            <router-link
-                :to="{ name: 'UserProfile', params: { userId: comment.User.id } }"
-                ><div class="d-flex text-center mr-2 mt-2">
-                <ProfileImage
-                    :src="comment.User.imageUrl"
-                    customeClasse="comment-profile-picture"
-                    divCustomeClass="div-comment-picture"
-                /></div>
-            ></router-link>
+            <router-link :to="{ name: 'UserProfile', params: { userId: comment.User.id } }" > 
+                <div class="d-flex text-center mr-2 mt-2">
+                <ProfileImage :src="comment.User.imageUrl" customClasse="comment-profile-picture" divCustomClass="div-comment-picture"/>
+                </div>
+            </router-link>
+
             <div class="comment-box">
-                <router-link
-                    :to="{ name: 'UserProfile', params: { userId: comment.User.id } }"
-                    ><p class="mb-0 font-weight-bold">
+                <router-link :to="{ name: 'UserProfile', params: { userId: comment.User.id } }">
+                    <p class="mb-0 font-weight-bold">
                         {{ comment.User.firstName }} {{ comment.User.lastName }}
-                </p></router-link>
+                    </p>
+                </router-link>
+
                 <input
                     v-if="isEditing"
                     ref="inputContent"
