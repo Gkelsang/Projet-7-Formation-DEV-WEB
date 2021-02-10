@@ -81,7 +81,7 @@ export default {
 <style lang="scss">
 // Config barre de recherche //
 .search-bar {
-  top: 4%;
+  top: 3%;
   left: 4%;
   z-index: 1;
   .input-group {

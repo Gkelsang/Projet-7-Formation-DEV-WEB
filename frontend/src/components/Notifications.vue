@@ -9,7 +9,7 @@
         v-if="notificationsList.length"
         class="notifications-number position-absolute d-flex justify-content-center align-items-center"
         >{{ notificationsList.length }}</span>
-      <b-icon icon="bell-fill"></b-icon>
+      <b-icon icon="bell"></b-icon>
     </button>
 
     <!-- Permet d'afficher si notifications il y a, quel autre utilisateur est impliqué --> 
@@ -115,7 +115,7 @@ export default {
     right: -4px;
     font-size: 12px;
     border-radius: 100%;
-    background: red;
+    background: #d1515a;
     color: white;
     height: 20px;
     width: 20px;

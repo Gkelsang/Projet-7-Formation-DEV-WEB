@@ -1,62 +1,47 @@
 <template>
   <div>
-    <button
-      @click="toggleActions"
-      class="profile-btn d-flex position-fixed justify-content-center justify-content-lg-between align-items-center"
-      aria-label="Afficher les actions"
-    >
-      <span class="name-profile-btn d-none d-lg-block">{{
-        userData.firstName
-      }}</span>
-      <ProfileImage
-        :src="userData.imageUrl"
-        customClass="profile-btn__img"
-        divCustomClass="div-profile-btn-img"
-      />
+    <!-- Configuration du boutton profil de l'utilisateur -->
+    <button @click="toggleActions" class="profile-btn d-flex position-fixed justify-content-center justify-content-lg-between align-items-center" aria-label="Afficher les actions" >
+      <!-- Permet d'afficher le prénom et la PP de l'utilisateur connecté -->
+      <span class="name-profile-btn d-none d-lg-block">{{ userData.firstName }}</span>
+      <ProfileImage :src="userData.imageUrl" customClass="profile-btn__img" divCustomClass="div-profile-btn-img" />
     </button>
-    <b-collapse
-      id="profile-collapsed"
-      v-bind:class="
-        `collapsed mt-2 position-fixed ${areActionsVisible && 'visible'}`
-      "
-    >
+
+    <!-- Menu déroulant avec les différents options -->
+    <b-collapse id="profile-collapsed" v-bind:class=" `collapsed mt-2 position-fixed ${areActionsVisible && 'visible'}` " >
       <b-card class="border-0" @click="toggleActions">
+
+        <!-- Boutton pour afficher le profil de l'utilisateur connecté -->
         <p class="card-text">
-          <button
-            class="collapsed-btn btn-block text-left"
-            @click="changeOrReloadPage('Profile')"
-            aria-label="Voir mon profil"
-          >
-            <b-icon icon="person" class="mr-2"></b-icon>Voir mon profil
+          <button class="collapsed-btn btn-block text-left" @click="changeOrReloadPage('Profile')" aria-label="Voir mon profil" >
+            <b-icon icon="person" class="mr-2"></b-icon> Voir mon profil
           </button>
         </p>
+
+        <!-- Boutton pour afficher la page d'accueil pour l'utilisateur connecté -->
         <p class="card-text">
-          <button
-            class="collapsed-btn btn-block text-left"
-            @click="changeOrReloadPage('Posts')"
-            aria-label="Voir la page d'accueil"
-          >
-            <b-icon icon="house" class="mr-2"></b-icon>Voir la page d'accueil
+          <button class="collapsed-btn btn-block text-left" @click="changeOrReloadPage('Posts')" aria-label="Voir la page d'accueil" >
+            <b-icon icon="house" class="mr-2"></b-icon> Voir la page d'accueil
           </button>
         </p>
+
+        <!-- Boutton qui permet à l'utilisateur de se déconnecter -->
         <p class="card-text">
-          <button
-            class="collapsed-btn btn-block text-left"
-            @click="logout"
-            aria-label="Se déconnecter"
-          >
-            <b-icon icon="box-arrow-right" class="mr-2"></b-icon>
-            Se déconnecter
+          <button class="collapsed-btn btn-block text-left" @click="logout" aria-label="Se déconnecter" >
+            <b-icon icon="box-arrow-right" class="mr-2"></b-icon> Se déconnecter
           </button>
         </p>
+
       </b-card>
     </b-collapse>
   </div>
 </template>
 
 <script>
+// Importation //
 import ProfileImage from './ProfileImage'
 
+// Exportation du module //
 export default {
   name: 'ProfileButton',
   components: {
@@ -87,15 +72,14 @@ export default {
 
 <style lang="scss">
 .profile-btn {
-  font-weight: 500;
   border: none;
   color: #000;
-  top: 20px;
-  right: 45px;
-  height: 45px;
+  top: 3%;
+  right: 3%;
+  height: 6%;
   padding: 5px 5px 5px 16px;
-  box-shadow: 0px 1px 1px 1px rgba(204, 204, 204, 0.2);
-  background-color: rgba(108, 117, 125, 0.1) !important;
+  box-shadow: 0px 1px 1px 1px #d1515a;
+  background-color: #323639;
   border-radius: 40px;
   z-index: 2;
   &:focus {
@@ -103,7 +87,7 @@ export default {
   }
   &:hover,
   &:visited {
-    background-color: rgba(108, 117, 125, 0.2) !important;
+    background-color: rgba(108, 117, 125, 0.2);
   }
   &__img {
     height: 30px;
