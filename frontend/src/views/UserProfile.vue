@@ -24,7 +24,7 @@ import PostsList from '../components/PostsList'
 import Menu from '../components/Menu'
 import AdminDeleteAccount from '../components/AdminDeleteAccount'
 
-// Exportations //
+// Exportations des modules//
 export default {
   name: 'UserProfile',
   components: {

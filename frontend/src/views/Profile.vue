@@ -93,7 +93,7 @@ import PostsList from '../components/PostsList'
 import Menu from '../components/Menu'
 import UserDeleteAccount from '../components/UserDeleteAccount'
 
-// Exportation du module //
+// Exportation des modules //
 export default {
   name: 'Profile',
   components: {
