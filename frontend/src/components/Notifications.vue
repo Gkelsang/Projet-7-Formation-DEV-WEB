@@ -1,54 +1,41 @@
 <template>
   <div>
+    <!-- Boutton pour afficher les notifications --> 
     <button
       @click="toggleActions"
       class="notification-btn d-flex position-fixed justify-content-center align-items-center p-0"
-      aria-label="Afficher les notifications"
-    >
+      aria-label="Afficher les notifications" >
       <span
         v-if="notificationsList.length"
         class="notifications-number position-absolute d-flex justify-content-center align-items-center"
-        >{{ notificationsList.length }}</span
-      >
+        >{{ notificationsList.length }}</span>
       <b-icon icon="bell-fill"></b-icon>
     </button>
+
+    <!-- Permet d'afficher si notifications il y a, quel autre utilisateur est impliqué --> 
     <b-collapse
       v-if="notificationsList.length"
       id="notification-collapsed"
-      v-bind:class="
-        `collapsed mt-2 position-fixed ${areActionsVisible && 'visible'}`
-      "
-    >
+      v-bind:class=" `collapsed mt-2 position-fixed ${areActionsVisible && 'visible'}` " >
+
       <b-card class="border-0" @click="toggleActions">
-        <div v-for="notification in notificationsList">
-          <router-link
-            :to="{ name: 'OnePost', params: { postId: notification.postId } }"
-            @click.native="deleteNotification(notification)"
-          >
+        <div v-for="notification in notificationsList" :key="notification">
+
+          <router-link :to="{ name: 'OnePost', params: { postId: notification.postId } }" @click.native="deleteNotification(notification)" >
             <div class="d-flex align-items-center">
               <div>
-                <ProfileImage
-                  :src="notification.Sender.imageUrl"
-                  customClass="like-profile-picture"
-                  divCustomClass="div-like-picture"
-                />
+                <ProfileImage :src="notification.Sender.imageUrl" customClass="like-profile-picture" divCustomClass="div-like-picture" />
               </div>
-              <p
-                v-html="notification.content"
-                class="card-text text-left py-2 mb-3"
-              ></p></div
-          ></router-link>
+              <p v-html="notification.content" class="card-text text-left py-2 mb-3" ></p>
+              </div>
+          </router-link>
+
         </div>
       </b-card>
     </b-collapse>
 
-    <b-collapse
-      v-else
-      id="notification-collapsed"
-      v-bind:class="
-        `collapsed mt-2 position-fixed ${areActionsVisible && 'visible'}`
-      "
-    >
+    <!-- Permet d'afficher le message suivant si il n'y a pas de notifications -->
+    <b-collapse v-else id="notification-collapsed" v-bind:class=" `collapsed mt-2 position-fixed ${areActionsVisible && 'visible'}` " >
       <b-card class="border-0">
         <div class="d-flex align-items-center">
           <p class="card-text text-left py-2 mb-3">
@@ -61,9 +48,11 @@
 </template>
 
 <script>
+// Importations //
 import { apiClient } from '../services/ApiClient'
 import ProfileImage from './ProfileImage'
 
+// Exportation du module //
 export default {
   name: 'Notifications',
   components: {
@@ -92,10 +81,9 @@ export default {
       this.notificationsList = res.notifications
     },
     async deleteNotification (notificationToDelete) {
-      const res = await apiClient.delete(
-        `api/notifications/${notificationToDelete.id}`
+      const res = await apiClient.delete(`api/notifications/${ notificationToDelete.id }`
       )
-      this.notificationsList = this.notificationsList.filter(
+      this.notificationsList = this.notificationsList.filter( 
         notification => notification.id !== notificationToDelete.id
       )
     }
@@ -104,18 +92,20 @@ export default {
 </script>
 
 <style lang="scss">
+
+// Config du boutton des notifications //
 .notification-btn {
-  top: 22px;
-  right: 175px;
-  box-shadow: 0px 1px 1px 1px rgba(204, 204, 204, 0.2);
-  background-color: rgba(108, 117, 125, 0.1) !important;
+  top: 3%;
+  right: 12%;
+  box-shadow: 0px 1px 1px 1px #d1515a;
+  background-color: #323639;
   border-radius: 100%;
-  width: 42px;
-  height: 42px;
+  width: 3%;
+  height: 6%;
   border: none;
   z-index: 2;
   &:hover {
-    background-color: rgba(108, 117, 125, 0.2) !important;
+    background-color: rgba(108, 117, 125, 0.2);
   }
   &:focus {
     outline: none;

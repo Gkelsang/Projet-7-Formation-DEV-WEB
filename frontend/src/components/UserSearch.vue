@@ -1,58 +1,52 @@
 <template>
   <div>
-    <div
-      :class="`search-bar ${visible ? '' : 'position-fixed d-none'} d-lg-block`"
-    >
+    <!-- Partie fonctionelle -->
+    <div :class="`search-bar ${visible ? '' : 'position-fixed d-none'} d-lg-block`" >
       <div class="search-bar__content input-group d-flex align-items-center">
         <span class="search-btn input-group-append bg-transparent border-0 p-0">
           <b-icon icon="search" class="mr-2"></b-icon>
         </span>
         <input
-          class="search-text border-0 bg-transparent"
+          class="text-white search-text border-0 bg-transparent"
           type="text"
           v-model="search"
-          placeholder="Chercher un utilisateur..."
+          placeholder="Rechercher un utilisateur..."
           ref="searchInput"
-          aria-label="Chercher un utilisateur"
-        />
+          aria-label="Rechercher un utilisateur" />
       </div>
     </div>
+    <!-- Boutton recherche -->
     <button
       class="search-btn-mobile position-fixed border-0 p-0 bg-transparent d-lg-none d-xl-none"
       type="button"
       @click="triggerInput"
-      aria-label="Chercher"
-    >
+      aria-label="Chercher">
       <b-icon icon="search"></b-icon>
     </button>
 
-    <div
-      v-if="usersList.length"
-      class="users-list card border-0 position-fixed"
-    >
-      <div v-for="user in usersList">
-        <router-link :to="{ name: 'UserProfile', params: { userId: user.id } }"
-          ><div class="d-flex align-items-center">
+    <!-- Affichage du resulat de la recherche --> 
+    <div v-if="usersList.length" class="users-list card border-0 position-fixed">
+      <div v-for="user in usersList" :key="user">
+        <router-link :to="{ name: 'UserProfile', params: { userId: user.id } }">
+          <div class="d-flex align-items-center">
             <div class="d-flex text-center">
-              <ProfileImage
-                :src="user.imageUrl"
-                customClass="like-profile-picture"
-                divCustomClass="div-like-picture"
-              />
+              <ProfileImage :src="user.imageUrl" customClass="like-profile-picture" divCustomClass="div-like-picture" />
             </div>
             <p>{{ user.firstName }} {{ user.lastName }}</p>
-          </div></router-link
-        >
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+// Importations //
 import { apiClient } from '../services/ApiClient'
 import router from '../router/index'
 import ProfileImage from './ProfileImage'
 
+// Exportations //
 export default {
   name: 'UserSearch',
   components: {
@@ -85,34 +79,35 @@ export default {
 </script>
 
 <style lang="scss">
+// Config barre de recherche //
 .search-bar {
-  top: 20px;
-  left: 45px;
-  z-index: 2;
+  top: 4%;
+  left: 4%;
+  z-index: 1;
   .input-group {
     flex-wrap: nowrap;
   }
   &__content {
-    padding: 10px 18px;
-    box-shadow: 0px 1px 1px 1px rgba(204, 204, 204, 0.2);
-    background-color: rgba(108, 117, 125, 0.1) !important;
+    padding: 10px 10px;
+    box-shadow: 0px 1px 1px 1px #D1515A;
+    background-color: rgba(108, 117, 125, 0.1);
     border-radius: 40px;
-    border: none;
     .search-text {
       width: 180px;
       &:focus {
         outline: none;
       }
     }
+    // Config boutton de recherche //
     .search-btn {
-      color: #747474;
+      color: white;
     }
   }
 }
-
+// Config résultat de la recherche //
 .users-list {
   background: white;
-  top: 73px;
+  top: 50%px;
   left: 47px;
   width: 236px;
   padding: 1rem;
@@ -121,6 +116,7 @@ export default {
   box-shadow: 0px 1px 5px 4px rgba(204, 204, 204, 0.2);
 }
 
+// Responsiv //
 @media screen and (min-width: 280px) and (max-width: 769px) {
   .search-bar {
     margin: 0 10px 15px 15px;
