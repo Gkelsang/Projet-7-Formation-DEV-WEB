@@ -73,7 +73,7 @@ export default {
 <style lang="scss">
 .profile-btn {
   border: none;
-  color: #000;
+  color: white;
   top: 3%;
   right: 3%;
   height: 6%;
