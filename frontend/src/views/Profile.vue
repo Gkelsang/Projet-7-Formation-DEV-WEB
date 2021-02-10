@@ -214,7 +214,7 @@ export default {
 }
 
 .save-btn {
-  background-color: rgba(253, 45, 6, 0.8);
+  background-color: #D1515A;
   color: white;
   border-radius: 1rem;
   border: none;
@@ -223,7 +223,7 @@ export default {
   &:hover,
   &:focus,
   &:active {
-    background-color: rgb(253, 45, 6);
+    background-color: #091f43;
     color: white;
     outline: none;
   }

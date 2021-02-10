@@ -1,15 +1,8 @@
 <template>
   <div id="app">
-    <div
-      id="nav"
-      class="d-flex sticky-top justify-content-start justify-content-sm-center mb-3 p-3"
-    >
+    <div id="nav" class="d-flex sticky-top justify-content-start justify-content-sm-center p-10">
       <router-link to="/">
-        <img
-          id="logo"
-          :src="require('./assets/logos/Fichier1.png')"
-          alt="logo Groupomania"
-        />
+        <img id="logo" :src="require('./assets/logos/Fichier1.png')" alt="logo Groupomania"/>
       </router-link>
     </div>
     <NotificationAlert />
@@ -18,8 +11,10 @@
 </template>
 
 <script>
+// Importations //
 import NotificationAlert from '../src/components/NotificationAlert'
 
+// Exportation de l'appli //
 export default {
   name: 'App',
   components: {
@@ -29,22 +24,23 @@ export default {
 </script>
 
 <style lang="scss">
+// Config général de l'appli //
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-}
+  background-color: #323639;
+};
 
+// Config général de la navigation //
 #nav {
   background: #323639;
   z-index: 1;
   border-bottom: solid 5px #D1515A;
   #logo {
-    max-width: 300px;
+    max-width: 50%;
   }
 }
 
+// Responsive //
 @media screen and (min-width: 280px) and (max-width: 767px) {
   body,
   .btn,
@@ -62,7 +58,5 @@ export default {
     max-width: 200px;
   }
 }
-#app {
-  background-color: #323639;
-}
+
 </style>
