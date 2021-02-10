@@ -19,22 +19,24 @@ import { mapState } from 'vuex'
 import CreatePost from '../components/CreatePost'
 import PostsList from '../components/PostsList'
 import Menu from '../components/Menu'
-
 export default {
-    name: 'Posts',
-    components: {
-        CreatePost, PostsList, Menu
-    },
-    data () {
-        return {
-        userData: JSON.parse(localStorage.getItem('userData'))
-        }
-    },
-    computed: {
-        ...mapState(['companyName'])
+  name: 'Posts',
+  components: {
+    CreatePost,
+    PostsList,
+    Menu
+  },
+  data () {
+    return {
+      userData: JSON.parse(localStorage.getItem('userData'))
     }
+  },
+  computed: {
+    ...mapState(['companyName'])
+  }
 }
 </script>
+
 
 <style lang="scss">
 .card-body {
