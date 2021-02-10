@@ -7,7 +7,7 @@
       <router-link to="/">
         <img
           id="logo"
-          :src="require('./assets/logos/icon-left-font.png')"
+          :src="require('./assets/logos/Fichier1.png')"
           alt="logo Groupomania"
         />
       </router-link>
@@ -37,9 +37,9 @@ export default {
 }
 
 #nav {
-  background: white;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background: #323639;
   z-index: 1;
+  border-bottom: solid 5px #D1515A;
   #logo {
     max-width: 300px;
   }
@@ -61,5 +61,8 @@ export default {
   #nav #logo {
     max-width: 200px;
   }
+}
+#app {
+  background-color: #323639;
 }
 </style>
