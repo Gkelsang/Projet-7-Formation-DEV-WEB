@@ -1,21 +1,21 @@
 <template>
-    <div class="profile-picture" :class="divCustomClass">
-        <img 
-            class="peofile-picture__img" 
-            :class="customClass"
-            :src="src || 'avatar-placehoder.jpg'" 
-            alt="">
-        />    
-    </div>
+  <div class="profile-picture" :class="divCustomClass">
+    <img
+      class="profile-picture__img"
+      :class="customClass"
+      :src="src || 'avatar-placeholder.jpg'"
+      alt=""
+    />
+  </div>
 </template>
 
 <script>
-
 export default {
-    name: 'ProfileImage',
-    props: ['customeClass', 'divCustomClass', 'src']
+  name: 'ProfileImage',
+  props: ['customClass', 'divCustomClass', 'src']
 }
 </script>
+
 <style lang="scss">
 .profile-picture {
   overflow: hidden;

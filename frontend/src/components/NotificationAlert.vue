@@ -1,26 +1,30 @@
 <template>
-    <div></div>
+  <div></div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    name: 'NotificationAlert',
+  name: 'NotificationAlert',
 
-    watch: {
-        message (newMessage) {
-            if (!newMessage) return
-            this.$bvToast.toast(newMessage, {
-                autoHideDelay: 4000
-            })
-        }
-    },
-    computed: {
-        ...mapState(['notificationAlert']),
-        message() {
-            return this.notificationAlert.message
-        }
+  watch: {
+    message (newMessage) {
+      if (!newMessage) return
+      this.$bvToast.toast(newMessage, {
+        title: 'Notification',
+        autoHideDelay: 4000
+      })
     }
+  },
+
+  computed: {
+    ...mapState(['notificationAlert']),
+    message () {
+      return this.notificationAlert.message
+    }
+  }
 }
 </script>
+
+<style lang="scss"></style>

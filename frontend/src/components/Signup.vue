@@ -76,49 +76,49 @@ import { apiClient } from '../services/ApiClient'
 import router from '../router/index'
 
 export default {
-    name: 'Signup',
-    data () {
-        return {
-            errorMessage: '',
-            input: {
-                firstName: '',
-                lastName: '',
-                email: '',
-                password: ''
-            }
-        }
-    },
-    methods: {
-        signup () {
-            if (
-                this.input.firstName != '' &&
-                this.input.lastName != '' &&
-                this.input.email != '' &&
-                this.input.password != ''
-            ) {
-                apiClient
-                    .post('api/auth/signup', this.input)
-                    .then(data => {
-                        if (!data.token) {
-                            this.errorMessage = data.error.errors[0].message
-                        } else {
-                            localStorage.setItem('userToken', data.token)
-                            localStorage.setItem('userData', JSON.stringify(data.user))
-                            router.push({ name: 'Posts' })
-                        }
-                    })
-                    .catch(error => {
-                        if (error.error) {
-                            return (this.errorMessage = error.error.errors[0].message)
-                        }
-
-                        this.errorMessage = 'Problème de connexion'
-                    })
-            } else {
-                this.errorMessage = 'Veuillez rentrer votre email et un mot de passe'
-            }
-        }
+  name: 'Signup',
+  data () {
+    return {
+      errorMessage: '',
+      input: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+      }
     }
+  },
+  methods: {
+    signup () {
+      if (
+        this.input.firstName != '' &&
+        this.input.lastName != '' &&
+        this.input.email != '' &&
+        this.input.password != ''
+      ) {
+        apiClient
+          .post('api/auth/signup', this.input)
+          .then(data => {
+            if (!data.token) {
+              this.errorMessage = data.error.errors[0].message
+            } else {
+              localStorage.setItem('userToken', data.token)
+              localStorage.setItem('userData', JSON.stringify(data.user))
+              router.push({ name: 'Posts' })
+            }
+          })
+          .catch(error => {
+            if (error.error) {
+              return (this.errorMessage = error.error.errors[0].message)
+            }
+
+            this.errorMessage = 'Problème de connexion'
+          })
+      } else {
+        this.errorMessage = 'Veuillez renseigner un email et un mot de passe'
+      }
+    }
+  }
 }
 </script>
 
@@ -127,6 +127,7 @@ a {
   text-decoration: none;
   color: #2c3e50 !important;
 }
+
 .account-btn {
   background-color: rgba(253, 45, 6, 0.8);
   color: white;
@@ -142,15 +143,18 @@ a {
     outline: none;
   }
 }
+
 @media screen and (min-width: 280px) and (max-width: 769px) {
   .account-card {
     .card-body {
       padding: 0.7rem;
     }
   }
+
   .shadow {
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.08) !important;
   }
+
   .login-text {
     font-size: 1.1rem;
   }

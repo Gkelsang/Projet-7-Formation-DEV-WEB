@@ -11,30 +11,36 @@
 </template>
 
 <script>
-
+import router from '../router/index'
 import { mapState, mapActions } from 'vuex'
 import Post from './Post'
+
 export default {
   name: 'PostsList',
   components: {
     Post
   },
   props: ['userId'],
+
   async mounted () {
     await this.initializePostStore(this.queryParams)
   },
+
   created () {
     window.addEventListener('scroll', this.handleScroll)
   },
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll)
   },
+
   methods: {
     ...mapActions(['initializePostStore', 'loadMore']),
+
     handleScroll (event) {
       const totalHeight = document.documentElement.scrollHeight
       const scrollHeight = window.scrollY + window.innerHeight
       const remainingOffset = totalHeight - scrollHeight
+
       if (remainingOffset < 300) {
         this.loadMore(this.queryParams)
       }
@@ -67,6 +73,7 @@ export default {
     }
   }
 }
+
 @media screen and (min-width: 280px) and (max-width: 769px) {
   .post {
     height: 230px;
