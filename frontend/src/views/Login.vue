@@ -30,8 +30,8 @@
                                         type="submit"
                                         id="login-button"
                                         class="account-btn font-weight-bold"
-                                        aria-label="Connexion"
-                                    > Connexion
+                                        aria-label="Connexion"> 
+                                        Connexion
                                     </button>
                                 <p class="my-3 text-danger">{{ errorMessage }}</p>    
                             </b-form>
@@ -50,14 +50,13 @@
 </template>
 
 <script>
-import Signup from '../components/Signup'
+
 import { apiClient } from '../services/ApiClient'
 import router from '../router/index'
 
 export default {
   name: 'Login',
   components: {
-    Signup
   },
   props: ['notification'],
   data () {
@@ -122,8 +121,6 @@ a {
 .account-input {
   &:-webkit-autofill {
     border: none;
-    -webkit-text-fill-color: #212529;
-    -webkit-box-shadow: 0 0 0px 1000px rgba(32, 120, 244, 0.2) inset;
     transition: background-color 5000s ease-in-out 0s;
   }
   &:focus {

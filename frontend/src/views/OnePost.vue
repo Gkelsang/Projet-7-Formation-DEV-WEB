@@ -1,7 +1,6 @@
 <template>
     <div>
         <Menu />
-
         <b-row class="row justify-content-center align items-center flex-column">
             <b-col cols="12" lg="6">
                 <Post v-if="post" :post="post" />
