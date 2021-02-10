@@ -50,61 +50,60 @@
 </template>
 
 <script>
-
+import Signup from '../components/Signup'
 import { apiClient } from '../services/ApiClient'
 import router from '../router/index'
 
-
 export default {
-    name: 'Login',
-    components: {
-        
-    },
-    props: ['notification'],
-    data () {
-        return {
-            errorMessage: '',
-            input: {
-                email:'',
-                password: ''
-            }
-        }
-    },
-    mounted () {
-        if (this.$route.query.deleteAccount) {
-            this.$bvToast.toast('Votre compte a bien été supprimé.', {
-                title: 'Notification',
-                autoHideDelay: 4000
-            })
-        }
-    },
-    methods: {
-        login () {
-        if (this.input.email != '' && this.input.password != '') {
-            apiClient
-            .post('api/auth/login', this.input)
-            .then(data => {
-                if(!data.token) {
-                    this.errorMessage = 'Utilisateur introuvable'
-                } else {
-                    localStorage.setItem('userToken', data.token)
-                    localStorage.setItem('userData', JSON.stringify(data.user))
-                    router.push({ name: 'Posts' })
-                }
-            })
-            .catch(error => {
-                if (error.error) {
-                    return (this.errorMessage = error.error)
-                }
-                this.errorMessage = 'Problème de connexion'
-            })
-        } else {
-            this.errorMessage = 'Veuillez renseigner votre email et votre mot de passe.'
-            }
-        }    
+  name: 'Login',
+  components: {
+    Signup
+  },
+  props: ['notification'],
+  data () {
+    return {
+      errorMessage: '',
+      input: {
+        email: '',
+        password: ''
+      }
     }
-}
+  },
 
+  mounted () {
+    if (this.$route.query.deletedAccount) {
+      this.$bvToast.toast('Votre compte a bien été supprimé', {
+        title: 'Notification',
+        autoHideDelay: 4000
+      })
+    }
+  },
+  methods: {
+    login () {
+      if (this.input.email != '' && this.input.password != '') {
+        apiClient
+          .post('api/auth/login', this.input)
+          .then(data => {
+            if (!data.token) {
+              this.errorMessage = 'Utilisateur introuvable'
+            } else {
+              localStorage.setItem('userToken', data.token)
+              localStorage.setItem('userData', JSON.stringify(data.user))
+              router.push({ name: 'Posts' })
+            }
+          })
+          .catch(error => {
+            if (error.error) {
+              return (this.errorMessage = error.error)
+            }
+            this.errorMessage = 'Problème de connexion'
+          })
+      } else {
+        this.errorMessage = 'Veuillez renseigner un email et un mot de passe'
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -112,12 +111,14 @@ a {
   text-decoration: none;
   color: #2c3e50 !important;
 }
+
 .line {
   display: block;
   width: 100%;
   height: 1px;
   background-color: rgba(192, 192, 192, 0.5);
 }
+
 .account-input {
   &:-webkit-autofill {
     border: none;

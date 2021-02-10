@@ -1,5 +1,7 @@
+// Importations //
 import { apiClient } from '../services/ApiClient'
 
+// Exportation du module //
 export default {
   state: {
     errorMessage: '',

@@ -1,3 +1,4 @@
+// Permet de faire une alerte pour toute notifications //
 export default {
     state: {
       message: ''
