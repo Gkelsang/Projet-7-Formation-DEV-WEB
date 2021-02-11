@@ -7,7 +7,7 @@ import notificationAlert from './notification-alert'
 // Utilisation de Vuex //
 Vue.use(Vuex)
 
-// Exportation du module //
+// Exportation des modules //
 export default new Vuex.Store({
   state: {
     companyName: 'Groupomania'
@@ -17,7 +17,6 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    posts,
-    notificationAlert
+    posts, notificationAlert
   }
 })
