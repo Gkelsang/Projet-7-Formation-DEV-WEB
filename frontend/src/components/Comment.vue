@@ -1,22 +1,21 @@
 <template>
   <div>
     <div class="d-flex align-items-center position-relative">
-      <router-link
-        :to="{ name: 'UserProfile', params: { userId: comment.User.id } }"
-        ><div class="d-flex text-center mr-2 mt-2">
-          <ProfileImage
-            :src="comment.User.imageUrl"
-            customClass="comment-profile-picture"
-            divCustomClass="div-comment-picture"
-          /></div
-      ></router-link>
+      <!-- Affiche la PP de l'utilisateur qui commente -->
+      <router-link :to="{ name: 'UserProfile', params: { userId: comment.User.id } }" >
+        <div class="d-flex text-center mr-2 mt-2">
+          <ProfileImage :src="comment.User.imageUrl" customClass="comment-profile-picture" divCustomClass="div-comment-picture" />
+        </div>
+      </router-link>
+      
+      <!-- Créer une boite pour chaque commentaire -->
       <div class="comment-box">
-        <router-link
-          :to="{ name: 'UserProfile', params: { userId: comment.User.id } }"
-          ><p class="mb-0 font-weight-bold">
+        <router-link :to="{ name: 'UserProfile', params: { userId: comment.User.id } }" >
+          <p class="mb-0 font-weight-bold">
             {{ comment.User.firstName }} {{ comment.User.lastName }}
-          </p></router-link
-        >
+          </p>
+        </router-link>
+
         <input
           v-if="isEditing"
           ref="inputContent"
@@ -26,10 +25,10 @@
           @keydown.enter.shift.exact="newline"
           type="text"
           class="input-content border-0 my-2"
-          aria-label="Modifier le commentaire"
-        />
+          aria-label="Modifier le commentaire" />
         <p v-else class="mb-0">{{ comment.content }}</p>
       </div>
+
       <div class="position-relative">
         <EditButton
           customClass="comment-button"
@@ -39,14 +38,14 @@
           @clickedEditButton="startEditing"
           @onDelete="onDelete"
           modifyText="Modifier"
-          deleteText="Supprimer"
-        />
+          deleteText="Supprimer" />
       </div>
     </div>
+
     <p class="text-secondary comment-date">
       {{
         moment(comment.updatedAt)
-          .locale('fr')
+          .locale('fr') 
           .fromNow()
       }}
     </p>
@@ -54,16 +53,17 @@
 </template>
 
 <script>
+// Importations //
 import { mapActions } from 'vuex'
 import { apiClient } from '../services/ApiClient'
 import EditButton from './EditButton'
 import ProfileImage from './ProfileImage'
 
+// Exportation des modules //
 export default {
   name: 'Comment',
   components: {
-    EditButton,
-    ProfileImage
+    EditButton, ProfileImage
   },
   props: ['comment', 'post'],
   data () {

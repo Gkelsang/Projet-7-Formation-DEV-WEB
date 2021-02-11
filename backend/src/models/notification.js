@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       recipientUserId: DataTypes.INTEGER,
       senderUserId: DataTypes.INTEGER,
+      postId: DataTypes.INTEGER,
       content: DataTypes.TEXT,
       viewed: DataTypes.BOOLEAN
     },

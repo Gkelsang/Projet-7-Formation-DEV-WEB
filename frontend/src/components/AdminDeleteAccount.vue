@@ -5,9 +5,11 @@
 </template>
 
 <script>
+// Importations //
 import { apiClient } from '../services/ApiClient'
 import DeleteAccountButton from '../components/DeleteAccountButton'
 
+// Exportation du module //
 export default {
   name: 'UserDeleteAccount',
   components: {

@@ -1,20 +1,12 @@
 <template>
   <div>
-    <button
-      v-if="count > 1 && !allCommentsDisplayed"
-      @click="fetchAllComments"
-      class="display-comments mb-2 pt-0 d-flex text-left"
-      aria-label="Afficher les autres commentaires"
-    >
+    <button v-if="count > 1 && !allCommentsDisplayed" @click="fetchAllComments" class="display-comments mb-2 pt-0 d-flex text-left" aria-label="Afficher les autres commentaires" >
       <span v-if="count > 2">Afficher {{ count - 1 }} autres commentaires</span>
       <span v-else>Afficher {{ count - 1 }} autre commentaire</span>
     </button>
-    <div class="comment mb-2 text-left" v-for="comment in list">
-      <Comment
-        @commentDeleted="removeComment"
-        :comment="comment"
-        :post="post"
-      />
+
+    <div class="comment mb-2 text-left" v-for="comment in list" :key="comment">
+      <Comment @commentDeleted="removeComment" :comment="comment" :post="post" />
     </div>
 
     <CreateComment @commentCreated="appendComment" :post="post" />
@@ -22,17 +14,18 @@
 </template>
 
 <script>
+// Importations //
 import { apiClient } from '../services/ApiClient'
 import router from '../router/index'
 import PostsList from '../components/PostsList'
 import CreateComment from './CreateComment'
 import Comment from './Comment'
 
+// Exportations des modules //
 export default {
   name: 'CommentsList',
   components: {
-    CreateComment,
-    Comment
+    CreateComment, Comment
   },
   props: ['post'],
   data () {
@@ -68,14 +61,14 @@ export default {
 
 <style lang="scss">
 .comment-box {
-  background-color: rgba(108, 117, 125, 0.1);
+  background-color: lightgray;
   padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
   margin-bottom: 0;
 }
 
 .display-comments {
-  color: #747474;
+  color: #091f43;
   background-color: transparent;
   border: none;
   font-weight: 500;
