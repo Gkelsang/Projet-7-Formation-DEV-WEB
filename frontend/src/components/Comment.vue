@@ -16,6 +16,7 @@
           </p>
         </router-link>
 
+        <!-- Permet de modifier un commentaire si besoin -->
         <input
           v-if="isEditing"
           ref="inputContent"
@@ -26,6 +27,7 @@
           type="text"
           class="input-content border-0 my-2"
           aria-label="Modifier le commentaire" />
+
         <p v-else class="mb-0">{{ comment.content }}</p>
       </div>
 
@@ -125,7 +127,7 @@ export default {
 .input-content:focus {
   border-radius: 0.25rem;
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem #d1515a;
 }
 
 .comment-date {

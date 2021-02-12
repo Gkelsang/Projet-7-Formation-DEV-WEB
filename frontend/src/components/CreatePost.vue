@@ -1,21 +1,18 @@
 <template>
   <div>
     <b-form @submit="onSubmit">
-      <PostForm
-        @onFileSelected="onFileSelected"
-        v-model="content"
-        :onFormSubmit="didSubmitForm"
-        :isCreating="true"
-      />
+      <PostForm @onFileSelected="onFileSelected" v-model="content" :onFormSubmit="didSubmitForm" :isCreating="true" />
     </b-form>
   </div>
 </template>
 
 <script>
+// Importations //
 import { apiClient } from '../services/ApiClient'
 import { mapActions } from 'vuex'
 import PostForm from './PostForm'
 
+// Exportation du module //
 export default {
   name: 'CreatePost',
   components: {

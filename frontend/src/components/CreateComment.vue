@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="d-flex align-items-center mt-3">
+      <!-- Afficher la PP à coté du commentaire -->
       <div class="d-flex mr-2 mb-2">
         <router-link :to="{ name: 'Profile' }">
-          <ProfileImage
-            :src="userData.imageUrl"
-            customClass="comment-profile-picture"
-            divCustomClass="div-comment-picture"
-        /></router-link>
+          <ProfileImage :src="userData.imageUrl" customClass="comment-profile-picture" divCustomClass="div-comment-picture" />
+        </router-link>
       </div>
+
+      <!-- Permet de créer un commentaire -->
       <b-form class="w-100" @submit="createComment">
         <b-form-group>
           <b-form-textarea
@@ -19,20 +19,21 @@
             @keydown.enter.shift.exact="newline"
             class="comment-area border-0"
             placeholder="Écrivez un commentaire ici..."
-            aria-label="Écrire un commentaire"
-          >
-          </b-form-textarea
-        ></b-form-group>
+            aria-label="Écrire un commentaire" >
+          </b-form-textarea>
+        </b-form-group>
       </b-form>
     </div>
   </div>
 </template>
 
 <script>
+// Importations //
 import { apiClient } from '../services/ApiClient'
 import router from '../router/index'
 import ProfileImage from './ProfileImage'
 
+// Exportation du module //
 export default {
   name: 'CreateComment',
   components: {
@@ -67,7 +68,12 @@ export default {
 
 <style lang="scss">
 .comment-area {
-  background-color: rgba(108, 117, 125, 0.1);
+  background-color: lightgrey;
+}
+.comment-area:focus {
+    border-radius: 0.25rem;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem #d1515a;
 }
 .div-comment-picture {
   width: 45px;

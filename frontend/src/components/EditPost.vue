@@ -1,45 +1,33 @@
 <template>
   <div>
-    <EditButton
-      :editingPost="true"
-      :isCreator="post.userId == userData.id"
-      :isAdmin="userData.admin"
-      @onDelete="onDelete"
-      :elementId="post.id"
-      modifyText="Modifier la publication"
-      deleteText="Supprimer la publication"
-    >
-      <b-modal
-        :id="`modal-${post.id}`"
-        title="Modifier la publication"
-        ok-title="Enregistrer"
-        ok-variant="light"
-        @ok="onUpload"
-        ok-only
-      >
+    <!-- Boutton modif pour les post -->
+    <EditButton :editingPost="true" :isCreator="post.userId == userData.id" :isAdmin="userData.admin" @onDelete="onDelete" :elementId="post.id" modifyText="Modifier la publication" deleteText="Supprimer la publication">
+
+      <!-- Boutton global -->
+      <b-modal :id="`modal-${post.id}`" title="Modifier la publication" ok-title="Enregistrer" ok-variant="light" @ok="onUpload" ok-only >
+
+        <!-- Boutton pour changer l'image chargé -->
         <b-form>
-          <PostForm
-            :imgUrl="post.imageUrl"
-            @onFileSelected="onFileSelected"
-            v-model="content"
-          />
+          <PostForm :imgUrl="post.imageUrl" @onFileSelected="onFileSelected" v-model="content" />
         </b-form>
+
       </b-modal>
     </EditButton>
   </div>
 </template>
 
 <script>
+// Importations //
 import { apiClient } from '../services/ApiClient'
 import { mapActions } from 'vuex'
 import PostForm from './PostForm'
 import EditButton from './EditButton'
 
+// Exportations des modules //
 export default {
   name: 'EditPost',
   components: {
-    PostForm,
-    EditButton
+    PostForm, EditButton
   },
   props: ['post'],
   data () {
@@ -79,29 +67,13 @@ export default {
 </script>
 
 <style lang="scss">
-.modal-body {
-  padding: 1rem 1rem 0 1rem;
-}
 
-.modal-title {
-  color: #747474;
-}
 
 .btn-light {
   border: none;
-  color: #747474;
+  color: #323639;
   font-weight: 500;
   display: block;
   width: 100%;
-  margin: 0 1rem 1rem 1rem;
-}
-
-.modal-content {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  border: none;
-  box-shadow: 0px 1px 5px 4px rgba(204, 204, 204, 0.2);
-}
-.modal-backdrop {
-  background-color: rgba(108, 117, 125, 0.2);
 }
 </style>
