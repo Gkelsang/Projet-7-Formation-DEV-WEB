@@ -10,7 +10,7 @@ const notificationsCtrl = require('./src/controllers/notifications')
 const postsRoutes = require('./src/routes/posts')
 const userRoutes = require('./src/routes/user')
 
-
+// Configuration du CRUD //
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(

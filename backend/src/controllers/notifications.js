@@ -1,6 +1,8 @@
+// Importations //
 const db = require('../models')
 const { Notification } = db.sequelize.models
 
+// Module qui permet de récupérer les notifications //
 exports.getNotificationsOfOneUser = (req, res, next) => {
   const options = {
     where: { recipientUserId: req.user.id },
@@ -18,6 +20,7 @@ exports.getNotificationsOfOneUser = (req, res, next) => {
     })
 }
 
+// Module qui permet de supprimer les notifications //
 exports.deleteNotification = (req, res, next) => {
   Notification.findOne({
     where: { id: req.params.id, recipientUserId: req.user.id }

@@ -1,26 +1,22 @@
+// Importations //
 const fs = require('fs')
-
 const db = require('../models')
 const { Post } = db.sequelize.models
 
+// Module qui permet de créer un post //
 exports.createPost = async (req, res, next) => {
   let postObject = req.body
 
   if (req.file) {
     postObject = JSON.parse(req.body.post)
-    postObject.imageUrl = `${req.protocol}://${req.get('host')}/public/${
-      req.file.filename
-    }`
+    postObject.imageUrl = `${req.protocol}://${req.get('host')}/public/${req.file.filename }`
   }
-
   try {
     let post = await Post.create({
       ...postObject,
       userId: req.user.id
     })
-
     post = await Post.findOne({ where: { id: post.id }, include: db.User })
-
     res.status(201).json({ post })
   } catch (error) {
     console.log(error)
@@ -28,6 +24,7 @@ exports.createPost = async (req, res, next) => {
   }
 }
 
+// Module qui permet de récupérer un post //
 exports.getOnePost = (req, res, next) => {
   Post.findOne({
     where: { id: req.params.id },
@@ -41,6 +38,7 @@ exports.getOnePost = (req, res, next) => {
     .catch(error => res.status(404).json({ error }))
 }
 
+// Module qui permet de récupérer tous les posts //
 exports.getAllPosts = (req, res, next) => {
   const limit = 4
   const page = parseInt(req.query.page) || 1
@@ -61,22 +59,19 @@ exports.getAllPosts = (req, res, next) => {
       userId: parseInt(req.query.userId)
     }
   }
-
   Post.findAll(options)
     .then(posts => res.status(200).json({ posts }))
     .catch(error => res.status(400).json({ error }))
 }
 
+// Module qui permet de modifier un post //
 exports.modifyPost = (req, res, next) => {
   const postObject = req.file
     ? {
         ...JSON.parse(req.body.post),
-        imageUrl: `${req.protocol}://${req.get('host')}/public/${
-          req.file.filename
-        }`
+        imageUrl: `${req.protocol}://${req.get('host')}/public/${req.file.filename}`
       }
     : { ...req.body }
-
   Post.findOne({
     where: { id: req.params.id, userId: req.user.id },
     include: db.User
@@ -89,15 +84,14 @@ exports.modifyPost = (req, res, next) => {
   })
 }
 
+// Module qui permet de supprimer un post //
 exports.deletePost = (req, res, next) => {
   const where = {
     id: req.params.id
   }
-
   if (!req.user.admin) {
     where.userId = req.user.id
   }
-
   Post.findOne({ where })
     .then(post => {
       if (!post) {

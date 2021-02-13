@@ -1,6 +1,8 @@
+// Importations //
 const db = require('../models')
 const { Likes } = db.sequelize.models
 
+// Module qui permet de liké un post //
 exports.likeOnePost = async (req, res, next) => {
   try {
     const existingLike = await Likes.findOne({
@@ -19,6 +21,7 @@ exports.likeOnePost = async (req, res, next) => {
   }
 }
 
+// Module qui permet récupérer un like //
 exports.getLikeOnOnePost = async (req, res, next) => {
   try {
     const existingLike = await Likes.findOne({
@@ -30,6 +33,7 @@ exports.getLikeOnOnePost = async (req, res, next) => {
   }
 }
 
+// Module qui permet de récupérer tout les likes d'un post //
 exports.getAllLikesOfOnePost = async (req, res, next) => {
   try {
     const allLikes = await Likes.findAll({

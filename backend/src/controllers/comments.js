@@ -1,6 +1,8 @@
+// Importations //
 const db = require('../models')
 const { Comments } = db.sequelize.models
 
+// Module pour la création de commentaire //
 exports.createComment = async (req, res, next) => {
   try {
     let comment = await Comments.create({
@@ -21,6 +23,7 @@ exports.createComment = async (req, res, next) => {
   }
 }
 
+// Module pour récupérer un commentaire //
 exports.getOneComment = (req, res, next) => {
   Comments.findOne({ where: { id: req.params.id }, include: db.User })
     .then(comment => res.status(200).json({ comment }))
@@ -46,6 +49,7 @@ exports.getAllComments = (req, res, next) => {
     .catch(error => res.status(400).json({ error }))
 }
 
+// Module pour modifier un commentaire //
 exports.modifyComment = (req, res, next) => {
   Comments.findOne({
     where: { id: req.params.id, userId: req.user.id },
@@ -61,6 +65,7 @@ exports.modifyComment = (req, res, next) => {
   })
 }
 
+// Module pour supprimer un commentaire //
 exports.deleteComment = async (req, res, next) => {
   const where = {
     id: req.params.id
