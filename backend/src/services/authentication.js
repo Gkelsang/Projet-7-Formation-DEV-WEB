@@ -1,6 +1,8 @@
+// Importation //
 const bcrypt = require('bcrypt')
 
-function ensurePasswordIsStrongEnough (value) {
+// Permet de hasher le mot de passe
+function hashPassword (value) {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z0-9\d@$!%*?&]{8,}$/
   if (!value.match(regex)) {
     throw new Error(
@@ -9,6 +11,7 @@ function ensurePasswordIsStrongEnough (value) {
   }
 }
 
+// Vérifie si l'utilisateur entre le bon mot de passe //
 function addAuthenticationOn (User) {
   const encryptPassword = user => {
     if (user.changed('password')) {
@@ -36,6 +39,6 @@ function addAuthenticationOn (User) {
 }
 
 module.exports = {
-  ensurePasswordIsStrongEnough,
+  hashPassword,
   addAuthenticationOn
 }
