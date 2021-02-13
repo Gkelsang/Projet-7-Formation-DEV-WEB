@@ -1,15 +1,11 @@
 <template>
   <div class="profile-picture" :class="divCustomClass">
-    <img
-      class="profile-picture__img"
-      :class="customClass"
-      :src="src || 'avatar-placeholder.jpg'"
-      alt=""
-    />
+    <img class="profile-picture__img" :class="customClass" :src="src || 'avatar-placeholder.jpg'" alt=""/>
   </div>
 </template>
 
 <script>
+// Exportation du module //
 export default {
   name: 'ProfileImage',
   props: ['customClass', 'divCustomClass', 'src']

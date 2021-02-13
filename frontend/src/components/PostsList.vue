@@ -5,16 +5,17 @@
         <Post :post="post" />
       </b-col>
     </b-row>
-
     <p class="mx-2">{{ posts.errorMessage }}</p>
   </div>
 </template>
 
 <script>
+// Importations //
 import router from '../router/index'
 import { mapState, mapActions } from 'vuex'
 import Post from './Post'
 
+// Exportation du module //
 export default {
   name: 'PostsList',
   components: {
