@@ -74,7 +74,7 @@ export default {
 .profile-btn {
   border: none;
   color: white;
-  top: 3%;
+  top: 10%;
   right: 3%;
   height: 6%;
   padding: 5px 5px 5px 16px;
@@ -127,9 +127,10 @@ export default {
 
 @media screen and (min-width: 280px) and (max-width: 769px) {
   .profile-btn {
-    top: 20px;
-    right: 20px;
-    height: 25px;
+    top: 0.80%;
+    right: 20%;
+    height: 32px;
+    width: 32px;
     padding: 0;
     &__img {
       height: 35px;

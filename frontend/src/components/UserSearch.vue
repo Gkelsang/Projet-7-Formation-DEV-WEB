@@ -81,7 +81,7 @@ export default {
 <style lang="scss">
 // Config barre de recherche //
 .search-bar {
-  top: 3%;
+  top: 10%;
   left: 4%;
   z-index: 1;
   .input-group {
@@ -107,7 +107,7 @@ export default {
 // Config résultat de la recherche //
 .users-list {
   background: white;
-  top: 50%px;
+  top: 25%;
   left: 47px;
   width: 236px;
   padding: 1rem;
@@ -129,8 +129,8 @@ export default {
   }
 
   .search-btn-mobile {
-    top: 20px;
-    right: 110px;
+    top: 0.6%;
+    right: 30%;
     color: #747474;
     font-size: 1.1rem;
     z-index: 2;

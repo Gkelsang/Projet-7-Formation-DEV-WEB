@@ -95,8 +95,8 @@ export default {
 
 // Config du boutton des notifications //
 .notification-btn {
-  top: 3%;
-  right: 12%;
+  top: 10%;
+  right: 20%;
   box-shadow: 0px 1px 1px 1px #d1515a;
   background-color: #323639;
   border-radius: 100%;
@@ -131,10 +131,10 @@ export default {
   }
 }
 
-@media screen and (min-width: 280px) and (max-width: 769px) {
+@media screen and (min-width: 320px) and (max-width: 769px) {
   .notification-btn {
-    top: 17px;
-    right: 65px;
+    top: 0.75%;
+    right: 10%;
     width: 32px;
     height: 32px;
     .notifications-number {
