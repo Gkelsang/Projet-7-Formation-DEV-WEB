@@ -1,0 +1,9 @@
+Voila le projet final de la formation développeur web de OPENCLASSROOMS
+
+Pour la lancer le projet, il faut commencer par cloner le projet graçe à un gitclone.
+
+Une fois cloné veuillez vous mettre dans le fichier FRONTEND du projet et lancer un npm install et un npm run serve.
+
+Après cela, veuillez vous mettre dans le fichier BACKEND du projet et lancer un npm install et un nodemon server
+
+L'application devrait alors se lancer sur http://localhost:8080
