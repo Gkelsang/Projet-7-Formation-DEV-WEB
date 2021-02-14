@@ -74,7 +74,7 @@ export default {
 .profile-btn {
   border: none;
   color: white;
-  top: 10%;
+  top: 5%;
   right: 3%;
   height: 6%;
   padding: 5px 5px 5px 16px;

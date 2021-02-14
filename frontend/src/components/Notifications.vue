@@ -95,7 +95,7 @@ export default {
 
 // Config du boutton des notifications //
 .notification-btn {
-  top: 10%;
+  top: 5%;
   right: 20%;
   box-shadow: 0px 1px 1px 1px #d1515a;
   background-color: #323639;
