@@ -1,8 +1,8 @@
 // Importation //
 const bcrypt = require('bcrypt')
 
-// Permet de hasher le mot de passe
-function hashPassword (value) {
+// Permet de vérifier la longeure du mot de passe //
+function checkPassword (value) {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z0-9\d@$!%*?&]{8,}$/
   if (!value.match(regex)) {
     throw new Error(
@@ -39,6 +39,6 @@ function addAuthenticationOn (User) {
 }
 
 module.exports = {
-  hashPassword,
+  checkPassword,
   addAuthenticationOn
 }
