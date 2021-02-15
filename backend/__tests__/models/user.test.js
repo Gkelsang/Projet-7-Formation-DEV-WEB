@@ -18,7 +18,7 @@ describe('User', () => {
 
   it('encrypts password', () => {
     expect.assertions(2)
-    const user = User.build({ email: 'marie@paret.com', password: 'azerty' })
+    const user = User.build({ email: 'testun@groupomania.com', password: 'azerty' })
     user
       .save()
       .then(() => {
