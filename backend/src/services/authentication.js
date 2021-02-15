@@ -2,7 +2,7 @@
 const bcrypt = require('bcrypt')
 
 // Permet de vérifier la longeure du mot de passe //
-function checkPassword (value) {
+function ensurePasswordIsStrongEnough (value) {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z0-9\d@$!%*?&]{8,}$/
   if (!value.match(regex)) {
     throw new Error(
@@ -39,6 +39,6 @@ function addAuthenticationOn (User) {
 }
 
 module.exports = {
-  checkPassword,
+  ensurePasswordIsStrongEnough,
   addAuthenticationOn
 }

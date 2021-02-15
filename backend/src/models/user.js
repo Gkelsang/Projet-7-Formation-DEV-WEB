@@ -2,7 +2,7 @@
 const { Model } = require('sequelize')
 
 const {
-  checkPassword,
+  ensurePasswordIsStrongEnough,
   addAuthenticationOn
 } = require('../services/authentication')
 
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           isEmail: true,
           //utilisation d'une méthode pour pouvoir afficher un message d'erreur customisé
-          async checkEmail (email) {
+          async ensureEmailIsUnique (email) {
             if (await User.findOne({ where: { email } }))
               throw new Error('Un compte existe déjà avec cette adresse mail !')
           }
@@ -50,11 +50,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          checkPassword
+          ensurePasswordIsStrongEnough
         }
       },
-      imageUrl: {
-        type: DataTypes.STRING,
+      imageUrl: DataTypes.STRING,
+      deleted: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
       },
       admin: {
         type: DataTypes.BOOLEAN,

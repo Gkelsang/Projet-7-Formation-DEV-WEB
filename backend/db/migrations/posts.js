@@ -1,18 +1,25 @@
 'use strict'
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Likes', {
+    await queryInterface.createTable('Posts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      postId: {
-        type: Sequelize.INTEGER
-      },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        }
+      },
+      content: {
+        type: Sequelize.TEXT
+      },
+      imageUrl: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -23,11 +30,8 @@ module.exports = {
         type: Sequelize.DATE
       }
     })
-    queryInterface.addIndex('Likes', ['postId', 'userId'], {
-      unique: true
-    })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Likes')
+    await queryInterface.dropTable('Posts')
   }
 }
