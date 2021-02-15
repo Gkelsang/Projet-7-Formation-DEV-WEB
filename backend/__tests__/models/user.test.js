@@ -1,3 +1,4 @@
+// Importations //
 const db = require('../../src/models')
 const { User } = db.sequelize.models
 
