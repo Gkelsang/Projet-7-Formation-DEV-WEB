@@ -34,6 +34,7 @@ export default {
 
 <style lang="scss">
 .delete-account {
+  color: #d1515a;
   font-size: 14px;
   border-radius: 0.25rem;
   background-color: transparent;
