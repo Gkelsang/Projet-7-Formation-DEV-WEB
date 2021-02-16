@@ -165,6 +165,7 @@ export default {
 
 .profile-main-picture {
   height: 100px;
+  width: 100px;
 }
 
 .custom-file-label {

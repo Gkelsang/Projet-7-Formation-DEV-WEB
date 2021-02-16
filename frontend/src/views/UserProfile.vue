@@ -53,19 +53,21 @@ export default {
 <style lang="scss">
 
 .div-user-profile-picture {
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   margin-bottom: 1rem;
   margin-top: 1rem;
   box-shadow: 0px 1px 2px 2px #d1515a;
 }
 .profile-main-picture {
-  height: 120px;
+  height: 100px;
+  width: 100px;
 }
 
 .user-name {
   font-size: 20px;
   font-weight: bold;
+  color: #d1515a;
 }
 
 @media screen and (min-width: 280px) and (max-width: 767px) {
