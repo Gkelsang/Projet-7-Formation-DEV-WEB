@@ -9,13 +9,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       postId: {
-        type: Sequelize.STRING
-      },
-      content: {
-        type: Sequelize.TEXT
+        type: Sequelize.INTEGER
       },
       userId: {
         type: Sequelize.INTEGER
+      },
+      content: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
