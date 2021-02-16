@@ -116,19 +116,21 @@ export default {
     font-size: 12px;
     border-radius: 100%;
     background: #d1515a;
-    color: white;
+    color: yellow;
     height: 20px;
     width: 20px;
   }
 }
 
 #notification-collapsed {
-  top: 62px;
-  right: 177px;
-  z-index: 1;
+  top: 11%;
+  right: 10%  ;
+  z-index: 2;
   .card-body {
     padding-bottom: 5px;
+    border: solid 3px #323639;
   }
+  
 }
 
 @media screen and (min-width: 320px) and (max-width: 769px) {
