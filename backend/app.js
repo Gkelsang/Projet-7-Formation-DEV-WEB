@@ -9,6 +9,7 @@ const userCtrl = require('./src/controllers/user')
 const notificationsCtrl = require('./src/controllers/notifications')
 const postsRoutes = require('./src/routes/posts')
 const userRoutes = require('./src/routes/user')
+const helmet = require ('helmet')
 
 // Configuration du CRUD //
 app.use((req, res, next) => {
